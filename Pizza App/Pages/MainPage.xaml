@@ -29,7 +29,6 @@
                     StrokeThickness="0"
                     BackgroundColor="Goldenrod"
                     HeightRequest="50">
-                
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Border.GestureRecognizers>
