@@ -32,6 +32,7 @@
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Border.GestureRecognizers>
+                
                 <HorizontalStackLayout HorizontalOptions="Center"
                                        VerticalOptions="Center"
                                        Spacing="10"
