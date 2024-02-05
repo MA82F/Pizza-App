@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Pizza_App.Services;
+using Pizza_App.ViewModels;
+using Pizza_App.Pages;
 
 namespace Pizza_App
 {
@@ -22,6 +25,13 @@ namespace Pizza_App
 #endif
 
             return builder.Build();
+        }
+        private static IServiceCollection AddPizzaServices(IServiceCollection services)
+        {
+            services.AddSingleton<PizzaService>();
+            services.AddSingletonWithShellRoute<HomePage, HomeViewModel>(nameof(HomePage));
+
+            return services;
         }
     }
 }
