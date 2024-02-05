@@ -74,7 +74,7 @@ namespace Pizza_App.Services
         };
         public IEnumerable<Pizza> GetAllPizzas() => _pizzas;
         public IEnumerable<Pizza> GetPopularPizzas(int count = 6) => _pizzas.OrderBy(p => Guid.NewGuid()).Take(count);
-        public IEnumerable<Pizza> GetPizzas(string searchTerm) => string.IsNullOrWhiteSpace(searchTerm) ? _pizzas : _pizzas.Where(p => p.Name.Contains(searchTerm,StringComparison.OrdinalIgnoreCase));
+        public IEnumerable<Pizza> SearchPizzas(string searchTerm) => string.IsNullOrWhiteSpace(searchTerm) ? _pizzas : _pizzas.Where(p => p.Name.Contains(searchTerm,StringComparison.OrdinalIgnoreCase));
 
     }
 }

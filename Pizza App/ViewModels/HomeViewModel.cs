@@ -1,7 +1,4 @@
-﻿using Pizza_App.Services;
-using System.Collections.ObjectModel;
-using Pizza_App.Models;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿
 
 namespace Pizza_App.ViewModels
 {
@@ -14,5 +11,13 @@ namespace Pizza_App.ViewModels
             Pizzas = new(_pizzaService.GetPopularPizzas());
         }
         public ObservableCollection<Pizza> Pizzas { get; set; }
+        [RelayCommand]
+        private async Task GoToAllPizzasPage(bool fromSearch = false)
+        {
+            var parameters = new Dictionary<string, object> {
+                [nameof(AllPizzaViewModel.FromSearch)] = fromSearch
+        };
+            await Shell.Current.GoToAsync(nameof(AllPizzasPage), animate:true,parameters);
+        }
     }
 }
