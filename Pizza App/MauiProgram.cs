@@ -23,6 +23,7 @@ namespace Pizza_App
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            AddPizzaServices(builder.Services);
 
             return builder.Build();
         }

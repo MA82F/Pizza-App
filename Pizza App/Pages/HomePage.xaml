@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:Pizza_App.ViewModels"
+             xmlns:models="clr-namespace:Pizza_App.Models"
              x:Class="Pizza_App.Pages.HomePage"
+             x:DataType="vm:HomeViewModel"
              Title="Pizza World"
              Padding="15">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             <Border StrokeShape="RoundRectangle 10"
                     StrokeThickness="0"
                     BackgroundColor="Goldenrod"
@@ -39,6 +43,83 @@
                 </Grid>
                 
             </Border>
+            <Border StrokeShape="RoundRectangle 22"
+                    StrokeThickness="2"
+                    Stroke="Goldenrod">
+                <Label Text="Search here..."
+                       TextColor="Goldenrod"
+                       Padding="10,14"/>
+            </Border>
+            
+            <BoxView HeightRequest="15"
+                     Color="Transparent"/>
+            
+            <Grid ColumnDefinitions="*,*">
+                <Label Grid.Column="0"
+                       Text="Popular Items"
+                       VerticalOptions="End"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="1"
+                       Text="View all"
+                       HorizontalOptions="End"
+                       VerticalOptions="End"
+                       TextDecorations="Underline"/>
+            </Grid>
+            <FlexLayout BindableLayout.ItemsSource="{Binding Pizzas}" Wrap="Wrap">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Pizza">
+                        <Border FlexLayout.Basis="50%"
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="0"
+                                BackgroundColor="PaleGoldenrod"
+                                Padding="10"
+                                Margin="2">
+                            <Grid RowDefinitions="150,Auto,Auto,Auto"
+                                  RowSpacing="5">
+                                <Image Grid.Row="0" 
+                                       Source="{Binding Image}" 
+                                       HeightRequest="150"
+                                       WidthRequest="130"/>
+                                <Label Grid.Row="1" 
+                                       Text="{Binding Name}"
+                                       HorizontalOptions="Center"
+                                       FontSize="20"/>
+                                <Grid Grid.Row="2"
+                                      ColumnDefinitions="*,*">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Price,StringFormat='${0:N2}'}"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"/>
+                                    <HorizontalStackLayout Grid.Column="1"
+                                                           HorizontalOptions="End"
+                                                           Spacing="2"
+                                                           VerticalOptions="Center">
+                                        <Label Text="4"/>
+                                        <Image Source="star"
+                                               HeightRequest="15"
+                                               WidthRequest="15">
+                                            <Image.Behaviors>
+                                                <toolkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>
+                                            </Image.Behaviors>
+                                        </Image>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                                <Button Grid.Row="3"
+                                        Text="View more"
+                                        BackgroundColor="Gold"
+                                        TextColor="Black"
+                                        CornerRadius="22"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="Center"
+                                        Padding="25,0"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                
+            </FlexLayout>  
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
