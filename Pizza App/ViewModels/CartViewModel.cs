@@ -8,6 +8,9 @@ namespace Pizza_App.ViewModels
 {
     public partial class CartViewModel : ObservableObject
     {
+        public event EventHandler<Pizza> CartItemRemoved;
+        public event EventHandler<Pizza> CartItemUpdated;
+        public event EventHandler CartCleared;
         public ObservableCollection<Pizza> Items { get; set; } = new();
 
         [ObservableProperty]
@@ -38,6 +41,8 @@ namespace Pizza_App.ViewModels
                 Items.Remove(item);
                 RecalculateTotalAmount();
 
+                CartItemRemoved?.Invoke(this, item);
+
                 var snackbarOption = new SnackbarOptions
                 {
                     CornerRadius = 10,
@@ -47,6 +52,7 @@ namespace Pizza_App.ViewModels
                 {
                     Items.Add(item);
                     RecalculateTotalAmount();
+                    CartItemUpdated?.Invoke(this, item);
                 }, "Undo",TimeSpan.FromSeconds(5),snackbarOption);
 
                 await snackbar.Show();
@@ -60,6 +66,9 @@ namespace Pizza_App.ViewModels
             {
                 Items.Clear();
                 RecalculateTotalAmount();
+
+                CartCleared?.Invoke(this, EventArgs.Empty);
+
                 await Toast.Make("Cart cleared", ToastDuration.Short).Show();
 
             }

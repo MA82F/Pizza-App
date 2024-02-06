@@ -12,6 +12,12 @@ namespace Pizza_App.ViewModels
         private readonly CartViewModel _cartViewModel;
         public DetailsViewModel(CartViewModel cartViewModel) {
             _cartViewModel = cartViewModel;
+            _cartViewModel.CartCleared += 
+        }
+
+        private void OnCartCleared(object? sender,EventArgs e)
+        {
+
         }
 
         [ObservableProperty]
