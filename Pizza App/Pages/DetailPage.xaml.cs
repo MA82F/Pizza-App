@@ -1,6 +1,8 @@
 #if IOS
 using UIKit;
 #endif
+using CommunityToolkit.Maui.Behaviors;
+
 namespace Pizza_App.Pages;
 
 public partial class DetailPage : ContentPage
@@ -24,5 +26,14 @@ public partial class DetailPage : ContentPage
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
 		await Shell.Current.GoToAsync("..",animate:true);
+    }
+    protected override void OnNavigatingFrom(NavigatingFromEventArgs args)
+    {
+        base.OnNavigatingFrom(args);
+		Behaviors.Add(new CommunityToolkit.Maui.Behaviors.StatusBarBehavior
+		{
+			StatusBarColor = Colors.DarkGoldenrod,
+			StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.LightContent
+		});
     }
 }

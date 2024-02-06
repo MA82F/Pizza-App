@@ -66,9 +66,10 @@
             </Border.Shadow>
             
         </Border>
-        <ImageButton Source="back"
+        <ImageButton Source="{OnPlatform Android='right_arrow',Default='back'}"
                      VerticalOptions="Start"
                      HorizontalOptions="Start"
+                     RotationY="{OnPlatform Android=180,Default=0}"
                      Margin="15"
                      Clicked="ImageButton_Clicked">
             <ImageButton.Behaviors>
