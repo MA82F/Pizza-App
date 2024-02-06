@@ -12,6 +12,16 @@
         <toolkit:StatusBarBehavior StatusBarColor="White"
                                    StatusBarStyle="DarkContent"/>
     </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="QuantityBtn" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <ScrollView Padding="15">
             <VerticalStackLayout Spacing="15">
@@ -64,7 +74,43 @@
                 <Shadow Brush="Gold"
                         Radius="100"/>
             </Border.Shadow>
-            
+            <Grid RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="*,*">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="{Binding Pizza.Amount,StringFormat='${0:N2}'}"
+                       FontSize="20"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      ColumnDefinitions="50,40,50"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center">
+                    <ImageButton Grid.Column="0"
+                                 Source="decrement"
+                                 Style="{StaticResource QuantityBtn}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label Grid.Column="1"
+                           Text="{Binding Pizza.CartQuantity}"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="25"/>
+                    <ImageButton Grid.Column="2"
+                                 Source="increment"
+                                 Style="{StaticResource QuantityBtn}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                </Grid>
+                
+            </Grid>
         </Border>
         <ImageButton Source="{OnPlatform Android='right_arrow',Default='back'}"
                      VerticalOptions="Start"
