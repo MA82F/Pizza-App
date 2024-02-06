@@ -15,5 +15,19 @@ namespace Pizza_App.ViewModels
 
         [ObservableProperty]
         private Pizza _pizza;
+
+        [RelayCommand]
+        private void AddToCart()
+        {
+            Pizza.CartQuantity++;
+        }
+        [RelayCommand]
+        private void RemoveFromCart()
+        {
+            if (Pizza.CartQuantity > 0)
+            {
+                Pizza.CartQuantity--;
+            }
+        }
     }
 }
