@@ -50,8 +50,13 @@
                        TextColor="Goldenrod"
                        Padding="10,14"/>
                 <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}"
-                                          CommandParameter="{x:Boolean true}"/>
+                    <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}">
+                        <TapGestureRecognizer.CommandParameter>
+                            <x:Boolean>
+                                True
+                            </x:Boolean>
+                        </TapGestureRecognizer.CommandParameter>
+                    </TapGestureRecognizer>
                 </Border.GestureRecognizers>
             </Border>
             
@@ -70,8 +75,13 @@
                        VerticalOptions="End"
                        TextDecorations="Underline">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}"
-                                              CommandParameter="{x:Boolean false}"/>
+                        <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}">
+                            <TapGestureRecognizer.CommandParameter>
+                                <x:Boolean>
+                                    False
+                                </x:Boolean>
+                            </TapGestureRecognizer.CommandParameter>
+                        </TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
@@ -122,8 +132,14 @@
                                         FontAttributes="Bold"
                                         VerticalOptions="End"
                                         HorizontalOptions="Center"
-                                        Padding="25,0"/>
+                                        Padding="25,0"
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}},Path=GoToDetailsPageCommand}"
+                                        CommandParameter="{Binding .}"/>
                             </Grid>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}},Path=GoToDetailsPageCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
                         </Border>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
