@@ -34,7 +34,7 @@ namespace Pizza_App.ViewModels
         {
             if(Pizza.CartQuantity > 0)
             {
-                // got to cart page
+                await Shell.Current.GoToAsync(nameof(CartPage),animate:true);
             }
             else
             {
