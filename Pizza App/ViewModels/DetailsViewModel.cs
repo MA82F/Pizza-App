@@ -9,8 +9,9 @@ namespace Pizza_App.ViewModels
     [QueryProperty(nameof(Pizza),nameof(Pizza))]
     public partial class DetailsViewModel : ObservableObject
     {
-        public DetailsViewModel() { 
-
+        private readonly CartViewModel _cartViewModel;
+        public DetailsViewModel(CartViewModel cartViewModel) {
+            _cartViewModel = cartViewModel;
         }
 
         [ObservableProperty]
@@ -20,6 +21,7 @@ namespace Pizza_App.ViewModels
         private void AddToCart()
         {
             Pizza.CartQuantity++;
+            _cartViewModel.UpdateCartItemCommand.Execute(Pizza);
         }
         [RelayCommand]
         private void RemoveFromCart()
@@ -27,6 +29,7 @@ namespace Pizza_App.ViewModels
             if (Pizza.CartQuantity > 0)
             {
                 Pizza.CartQuantity--;
+                _cartViewModel.UpdateCartItemCommand.Execute(Pizza);
             }
         }
         [RelayCommand]

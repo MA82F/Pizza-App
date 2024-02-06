@@ -30,13 +30,26 @@ namespace Pizza_App.ViewModels
             RecalculateTotalAmount();
         }
         [RelayCommand]
-        private void RemoveCartItem(string name)
+        private async void RemoveCartItem(string name)
         {
             var item = Items.FirstOrDefault(i => i.Name == name);
             if (item != null)
             {
                 Items.Remove(item);
                 RecalculateTotalAmount();
+
+                var snackbarOption = new SnackbarOptions
+                {
+                    CornerRadius = 10,
+                    BackgroundColor = Colors.PaleGoldenrod
+                };
+                var snackbar = Snackbar.Make($"'{item.Name}'removed from cart", () =>
+                {
+                    Items.Add(item);
+                    RecalculateTotalAmount();
+                }, "Undo",TimeSpan.FromSeconds(5),snackbarOption);
+
+                await snackbar.Show();
             }
         }
         [RelayCommand]
