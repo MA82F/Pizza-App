@@ -118,7 +118,8 @@
                         HorizontalOptions="Center"
                         CornerRadius="22"
                         Padding="80,10"
-                        Margin="0,20"/>
+                        Margin="0,20"
+                        Command="{Binding ViewCartCommand}"/>
             </Grid>
         </Border>
         <ImageButton Source="{OnPlatform Android='right_arrow',Default='back'}"

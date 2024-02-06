@@ -6,3 +6,5 @@ global using Pizza_App.ViewModels;
 global using Pizza_App.Pages;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Maui.Alerts;
+global using CommunityToolkit.Maui.Core;

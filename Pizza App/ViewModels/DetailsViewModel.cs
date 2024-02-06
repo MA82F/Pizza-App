@@ -29,5 +29,17 @@ namespace Pizza_App.ViewModels
                 Pizza.CartQuantity--;
             }
         }
+        [RelayCommand]
+        private async Task ViewCart()
+        {
+            if(Pizza.CartQuantity > 0)
+            {
+                // got to cart page
+            }
+            else
+            {
+                await Toast.Make("Please select the quantity using + button", ToastDuration.Short).Show();
+            }
+        }
     }
 }
