@@ -26,6 +26,7 @@ namespace Pizza_App.ViewModels
         {
             Pizzas.Clear();
             Searching = true;
+            await Task.Delay(1000);
             foreach (var pizza in _pizzaService.SearchPizzas(searchTerm))
             {
                 Pizzas.Add(pizza);

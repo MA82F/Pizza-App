@@ -17,11 +17,15 @@
     </ContentPage.Triggers>
     <Grid RowDefinitions="Auto,*">
         <SearchBar Grid.Row="0"
+                   x:Name="searchBar"
                    Placeholder="Search for pizza..."
                    PlaceholderColor="Goldenrod"
                    CancelButtonColor="Red"
                    TextColor="DarkGoldenrod"
-                   ios:SearchBar.SearchBarStyle="Minimal"/>
+                   ios:SearchBar.SearchBarStyle="Minimal"
+                   SearchCommand="{Binding SearchPizzasCommand}"
+                   SearchCommandParameter="{Binding Source={x:Reference searchBar},Path=Text}"
+                   TextChanged="searchBar_TextChanged"/>
         <ScrollView Grid.Row="1"
                     Margin="5">
             <VerticalStackLayout>
@@ -66,15 +70,57 @@
                                                 </Image>
                                             </HorizontalStackLayout>
                                         </Grid>
-                                        <Border
-    
+                                        <Border StrokeShape="RoundRectangle 25"
+                                                StrokeThickness="0"
+                                                BackgroundColor="Gold"
+                                                HeightRequest="45"
+                                                HorizontalOptions="Center"
+                                                Padding="30,5"
+                                                VerticalOptions="End">
+                                            <HorizontalStackLayout Spacing="2"
+                                                                   Padding="2">
+                                                <Label Text="View more"
+                                                       VerticalOptions="Center"/>
+                                                <Image Source="right_arrow"
+                                                       HeightRequest="30"
+                                                       VerticalOptions="Center"/>
+                                            </HorizontalStackLayout>
+
+                                        </Border>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                            <BoxView HeightRequest="100"
+                                     Color="Transparent"/>
+                            <Label Text="No pizzas found"
+                                   FontSize="25"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding Searching}"
+                                                 Value="true">
+                                        <Setter Property="Text"
+                                                Value="Searching..."/>
+                                    </DataTrigger>
+                                                 
+                                </Label.Triggers>
+                            </Label>
+
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
                 </CollectionView>
             </VerticalStackLayout>
         </ScrollView>
+        <ActivityIndicator Grid.RowSpan="2"
+                           IsRunning="{Binding Searching}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Color="DarkGoldenrod"/>
     </Grid>
 </ContentPage>
