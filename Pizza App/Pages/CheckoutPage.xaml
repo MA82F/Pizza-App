@@ -28,6 +28,7 @@
                 HorizontalOptions="Center"
                 Padding="50,10"
                 Scale="0"
-                Opacity="0"/>
+                Opacity="0"
+                Clicked="homebtn_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
