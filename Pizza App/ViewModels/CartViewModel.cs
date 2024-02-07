@@ -77,8 +77,9 @@ namespace Pizza_App.ViewModels
         private async Task PlaceOrder()
         {
             Items.Clear();
+            CartCleared?.Invoke(this, EventArgs.Empty);
             RecalculateTotalAmount();
-            //go to check out page
+            await Shell.Current.GoToAsync(nameof(CheckoutPage), animate: true);
         }
     }
 

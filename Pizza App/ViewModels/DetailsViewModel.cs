@@ -7,17 +7,26 @@ using System.Threading.Tasks;
 namespace Pizza_App.ViewModels
 {
     [QueryProperty(nameof(Pizza),nameof(Pizza))]
-    public partial class DetailsViewModel : ObservableObject
+    public partial class DetailsViewModel : ObservableObject,IDisposable
     {
         private readonly CartViewModel _cartViewModel;
         public DetailsViewModel(CartViewModel cartViewModel) {
             _cartViewModel = cartViewModel;
-            _cartViewModel.CartCleared += 
+            _cartViewModel.CartCleared += OnCartCleared;
+            _cartViewModel.CartItemRemoved += OnCartItemRemoved;
+            _cartViewModel.CartItemUpdated += OnCartItemUpdated;
         }
 
-        private void OnCartCleared(object? sender,EventArgs e)
-        {
+        private void OnCartCleared(object? _,EventArgs e) => Pizza.CartQuantity = 0;
 
+        private void OnCartItemRemoved(object? _, Pizza p) => OnCartItemChanged(p,0);
+        private void OnCartItemUpdated(object? _, Pizza p) => OnCartItemChanged(p,p.CartQuantity);
+        private void OnCartItemChanged(Pizza p, int quantity)
+        {
+            if (p.Name == Pizza.Name)
+            {
+                Pizza.CartQuantity = quantity;
+            }
         }
 
         [ObservableProperty]
@@ -49,6 +58,13 @@ namespace Pizza_App.ViewModels
             {
                 await Toast.Make("Please select the quantity using + button", ToastDuration.Short).Show();
             }
+        }
+
+        public void Dispose()
+        {
+            _cartViewModel.CartCleared -= OnCartCleared;
+            _cartViewModel.CartItemRemoved -= OnCartItemRemoved;
+            _cartViewModel.CartItemUpdated -= OnCartItemUpdated;
         }
     }
 }
