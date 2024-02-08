@@ -2,10 +2,10 @@ namespace Pizza_App.Pages;
 
 public partial class CheckoutPage : ContentPage
 {
-	public CheckoutPage()
+    public CheckoutPage()
 	{
 		InitializeComponent();
-	}
+    }
     protected override async void OnAppearing()
     {
         base.OnAppearing();

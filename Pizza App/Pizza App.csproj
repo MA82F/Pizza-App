@@ -53,26 +53,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- <MauiImage Remove="Resources\Images\check.jpg" />
-	  <MauiImage Remove="Resources\Images\decrement.jpg" />
-	  <MauiImage Remove="Resources\Images\increment.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza10.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza2.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza3.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza4.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza5.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza6.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza7.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza8.jpg" />
-	  <MauiImage Remove="Resources\Images\pizza9.jpg" />
-	  <MauiImage Remove="Resources\Images\right_arrow.jpg" />
-	  <MauiImage Remove="Resources\Images\star.jpg" />
-	  <MauiImage Remove="Resources\Images\trash.jpg" /> -->
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 

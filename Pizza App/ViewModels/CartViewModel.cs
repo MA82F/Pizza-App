@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using Microsoft.Maui.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +11,7 @@ namespace Pizza_App.ViewModels
 {
     public partial class CartViewModel : ObservableObject
     {
+        FirebaseClient firebase;
         public event EventHandler<Pizza> CartItemRemoved;
         public event EventHandler<Pizza> CartItemUpdated;
         public event EventHandler CartCleared;
@@ -73,13 +77,34 @@ namespace Pizza_App.ViewModels
 
             }
         }
+
+        void InitializeFirebase()
+        {
+            // Initialize Firebase Realtime Database
+            var firebaseUrl = "https://pizza-app-d8b8a-default-rtdb.firebaseio.com/"; // Replace with your Firebase URL
+            firebase = new FirebaseClient(firebaseUrl);
+        }
         [RelayCommand]
         private async Task PlaceOrder()
         {
+
+            InitializeFirebase();
+
+
+            try
+            {
+                    await firebase.Child("Orders").PostAsync(Items); // Add new item to Firebase
+                    await Shell.Current.GoToAsync(nameof(CheckoutPage), animate: true);
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions while saving data to Firebase
+                Console.WriteLine("Error saving data to Firebase: " + ex.Message);
+            }
             Items.Clear();
             CartCleared?.Invoke(this, EventArgs.Empty);
             RecalculateTotalAmount();
-            await Shell.Current.GoToAsync(nameof(CheckoutPage), animate: true);
+
         }
     }
 
