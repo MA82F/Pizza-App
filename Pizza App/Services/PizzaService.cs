@@ -14,61 +14,61 @@ namespace Pizza_App.Services
             new Pizza
             {
                 Name = "Pizza 1",
-                Image = "pizza1",
+                Image = "pizza1.jpg",
                 Price = 5.1
             },
             new Pizza
             {
                 Name = "Pizza 2",
-                Image = "pizza2",
+                Image = "pizza2.jpg",
                 Price = 2.5
             },
             new Pizza
             {
                 Name = "Pizza 3",
-                Image = "pizza3",
+                Image = "pizza3.jpg",
                 Price = 1.45
             },
             new Pizza
             {
                 Name = "Pizza 4",
-                Image = "pizza4",
+                Image = "pizza4.jpg",
                 Price = 4.45
             },
             new Pizza
             {
                 Name = "Pizza 5",
-                Image = "pizza5",
+                Image = "pizza5.jpg",
                 Price = 12.45
             },
             new Pizza
             {
                 Name = "Pizza 6",
-                Image = "pizza6",
+                Image = "pizza6.jpg",
                 Price = 3.45
             },
             new Pizza
             {
                 Name = "Pizza 7",
-                Image = "pizza7",
+                Image = "pizza7.jpg",
                 Price = 2.45
             },
             new Pizza
             {
                 Name = "Pizza 8",
-                Image = "pizza8",
+                Image = "pizza8.jpg",
                 Price = 1.5
             },
             new Pizza
             {
                 Name = "Pizza 9",
-                Image = "pizza9",
+                Image = "pizza9.jpg",
                 Price = 1.3
             },
             new Pizza
             {
                 Name = "Pizza 10",
-                Image = "pizza10",
+                Image = "pizza10.jpg",
                 Price = 2.9
             }
         };

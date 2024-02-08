@@ -40,7 +40,10 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*.svg" />
+		<MauiImage Include="Resources\Images\*.jpg" />
+		<MauiImage Include="Resources\Images\pizza2.jpg" />
 		<MauiImage Include="Resources\Images\*.svgpng" />
+		<MauiImage Include="Resources\Images\*.svgjpg" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 
 		<!-- Custom Fonts -->
@@ -48,6 +51,24 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\check.jpg" />
+	  <MauiImage Remove="Resources\Images\decrement.jpg" />
+	  <MauiImage Remove="Resources\Images\increment.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza10.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza2.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza3.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza4.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza5.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza6.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza7.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza8.jpg" />
+	  <MauiImage Remove="Resources\Images\pizza9.jpg" />
+	  <MauiImage Remove="Resources\Images\right_arrow.jpg" />
+	  <MauiImage Remove="Resources\Images\star.jpg" />
+	  <MauiImage Remove="Resources\Images\trash.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
