@@ -123,10 +123,12 @@
             </Grid>
         </Border>
         <ImageButton Source="{OnPlatform Android='right_arrow',Default='back'}"
+                     WidthRequest="50"
+                     HeightRequest="50"
                      VerticalOptions="Start"
                      HorizontalOptions="Start"
                      RotationY="{OnPlatform Android=180,Default=0}"
-                     Margin="15"
+                     Margin="6"
                      Clicked="ImageButton_Clicked">
             <ImageButton.Behaviors>
                 <toolkit:IconTintColorBehavior TintColor="DarkGoldenrod"/>

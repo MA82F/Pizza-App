@@ -54,7 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Remove="Resources\Images\check.jpg" />
+		<!-- <MauiImage Remove="Resources\Images\check.jpg" />
 	  <MauiImage Remove="Resources\Images\decrement.jpg" />
 	  <MauiImage Remove="Resources\Images\increment.jpg" />
 	  <MauiImage Remove="Resources\Images\pizza10.jpg" />
@@ -68,7 +68,7 @@
 	  <MauiImage Remove="Resources\Images\pizza9.jpg" />
 	  <MauiImage Remove="Resources\Images\right_arrow.jpg" />
 	  <MauiImage Remove="Resources\Images\star.jpg" />
-	  <MauiImage Remove="Resources\Images\trash.jpg" />
+	  <MauiImage Remove="Resources\Images\trash.jpg" /> -->
 	</ItemGroup>
 
 	<ItemGroup>

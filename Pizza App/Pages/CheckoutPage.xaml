@@ -12,9 +12,6 @@
                HeightRequest="150"
                WidthRequest="150"
                Scale="0">
-            <Image.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="Green"/>
-            </Image.Behaviors>
         </Image>
         <Label x:Name="msg"
                Text="Order Placed Successfully"
@@ -23,6 +20,7 @@
                Scale="0"/>
         <Button x:Name="homebtn"
                 Text="Go to home"
+                TextColor="LightGreen"
                 BackgroundColor="DarkGoldenrod"
                 CornerRadius="22"
                 HorizontalOptions="Center"
