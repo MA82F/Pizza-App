@@ -81,7 +81,7 @@ namespace Pizza_App.ViewModels
         void InitializeFirebase()
         {
             // Initialize Firebase Realtime Database
-            var firebaseUrl = "https://pizza-app-d8b8a-default-rtdb.firebaseio.com/"; // Replace with your Firebase URL
+            var firebaseUrl = "your firebase link"; // Replace with your Firebase URL
             firebase = new FirebaseClient(firebaseUrl);
         }
         [RelayCommand]
